@@ -1,0 +1,84 @@
+<ng-container>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" mat-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+     
+    <span class="title-name">Terzo-assessment</span>
+    <p class="user">{{ userName }}</p>
+    <p><button mat-raised-button (click)="logout()" >Logout</button></p>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav"> 
+      <mat-nav-list>
+      <a mat-list-item routerLink="/employees" [routerLinkActive]="['is-active']">Employees</a>
+      <a mat-list-item routerLink="/department" [routerLinkActive]="['is-active']">Department</a>
+    </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Checkbox Column -->
+           <ng-container matColumnDef="select">
+             <th mat-header-cell *matHeaderCellDef>
+               <mat-checkbox (change)="$event ? masterToggle() : null"
+                             [checked]="selection.hasValue() && isAllSelected()"
+                             [indeterminate]="selection.hasValue() && !isAllSelected()"
+                             [aria-label]="checkboxLabel()">
+               </mat-checkbox>
+             </th>
+             <td mat-cell *matCellDef="let row">
+               <mat-checkbox (click)="$event.stopPropagation()"
+                             (change)="toggleSelection(row)"
+                             [checked]="selection.isSelected(row)"
+                             [aria-label]="checkboxLabel(row)">
+               </mat-checkbox>
+             </td>
+           </ng-container>
+         
+           <!-- Position Column -->
+           <ng-container matColumnDef="id">
+             <th mat-header-cell *matHeaderCellDef> S.No. </th>
+             <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+           </ng-container>
+         
+           <!-- Name Column -->
+           <ng-container matColumnDef="name">
+             <th mat-header-cell *matHeaderCellDef> Name </th>
+             <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+           </ng-container>
+         
+           
+           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+           <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+               (click)="selection.toggle(row)">
+           </tr>
+         </table>
+         <div class="heading">
+         <h2>Selected {{ details }}</h2>
+        </div>
+         <table mat-table [dataSource]="selectedDataSource" class="mat-elevation-z8">
+             <!-- Position Column -->
+             <ng-container matColumnDef="id">
+               <th mat-header-cell *matHeaderCellDef> S.No. </th>
+               <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+             </ng-container>
+           
+             <!-- Name Column -->
+             <ng-container matColumnDef="name">
+               <th mat-header-cell *matHeaderCellDef> Name </th>
+               <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+             </ng-container>
+           
+             
+             <tr mat-header-row *matHeaderRowDef="['id', 'name']"></tr>
+             <tr mat-row *matRowDef="let row; columns: ['id', 'name'];"
+                 (click)="selection.toggle(row)">
+             </tr>
+           </table>
+     </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
+
+
