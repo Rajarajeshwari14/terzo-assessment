@@ -1,15 +1,22 @@
-<div class="login-form">
-  <form>
-      <mat-form-field class="example-full-width">
-       
-        <input matInput placeholder="User Name" [(ngModel)]="username" name="username" required="true">
-      </mat-form-field>
-      
-      <mat-form-field class="example-full-width">
-        <mat-label>Password:</mat-label>
-        <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required="true">
-      </mat-form-field>
-      <p>{{ message }}</p>
-      <button mat-raised-button color="primary" (click)="login()">Login</button>
-    </form>
+
+<div class="card">
+  <div class="card-body">
+    <div class="login-form">
+      <form>
+        <h1 class="card-header">WELCOME</h1>
+    
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Username:</mat-label>
+            <input matInput placeholder="User Name" [(ngModel)]="username" name="username" required="true">
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password:</mat-label>
+            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required="true">
+          </mat-form-field>
+          <p>{{ message }}</p>
+          <button mat-raised-button color="primary" (click)="login()">LOGIN</button>
+        </form>
+      </div>
   </div>
+</div>

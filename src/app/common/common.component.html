@@ -1,6 +1,6 @@
 <ng-container>
   <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" mat-button (click)="sidenav.toggle()">
+    <button mat-icon-button class="format-icon" aria-label="Example icon-button with menu icon" mat-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
      
@@ -9,8 +9,8 @@
     <p><button mat-raised-button (click)="logout()" >Logout</button></p>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" opened class="example-sidenav"> 
+  <mat-sidenav-container class="format-container">
+    <mat-sidenav #sidenav mode="side" opened class="format-sidenav"> 
       <mat-nav-list>
       <a mat-list-item routerLink="/employees" [routerLinkActive]="['is-active']">Employees</a>
       <a mat-list-item routerLink="/department" [routerLinkActive]="['is-active']">Department</a>

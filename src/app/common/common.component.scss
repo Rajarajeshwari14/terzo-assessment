@@ -1,4 +1,4 @@
-.example-container {
+.format-container {
   position: absolute;
   top: 60px;
   left: 0;
@@ -43,7 +43,7 @@ table {
     margin-left: 80px;
    
   }
-.example-sidenav {
+.format-sidenav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,10 +53,10 @@ table {
 .mat-list-item{
   color: white;
 }
-.example-sidenav {
+.format-sidenav {
   user-select: none;
 }
-.example-header {
+.format-header {
   position: fixed;
   top: 0;
   left: 0;

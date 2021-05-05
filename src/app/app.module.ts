@@ -37,9 +37,7 @@ import { CommonComponent } from './common/common.component';
      MatSidenavModule,
      MatIconModule,
      MatListModule,
-     MatToolbarModule
-     
-   
+     MatToolbarModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
